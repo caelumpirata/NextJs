@@ -1,5 +1,6 @@
 import PetForm from '../components/PetForm';
 import NewForm from '../components/NewForm';
+import NumerologyForm from '@/components/NumerologyForm';
 
 const Home = () => {
   return (
@@ -7,7 +8,9 @@ const Home = () => {
       <div className="max-w-md w-full bg-gray-800 p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl text-white mb-6">Add a New Pet</h1>
         {/* <PetForm /> */}
-        <NewForm />
+        {/* <NewForm /> */}
+        <NumerologyForm />
+
       </div>
     </div>
   );
