@@ -73,6 +73,8 @@ const PetForm = () => {
   const [fullName, setFullName] = useState('');
   const [message, setMessage] = useState('');
   const [sum, setSum] = useState('');
+  const [sixOrNine, setSixOrNine] = useState('');
+
 
 
   // ON CLICK OF BUTTON , CALCULATE FOLLOWING
@@ -93,7 +95,7 @@ const PetForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ petName, ownerName, fullName: calculatedFullName , sum}),
+        body: JSON.stringify({ petName, ownerName, fullName: calculatedFullName , sum, sixOrNine}),
       });
 
       if (!response.ok) {
@@ -104,6 +106,7 @@ const PetForm = () => {
       setMessage('Pet added successfully!');
       setPetName('');
       setOwnerName('');
+      setSixOrNine('');
     } catch (err) {
       setMessage(err.message);
     }
@@ -131,6 +134,19 @@ const PetForm = () => {
           className="bg-gray-700 appearance-none border rounded py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600"
         />
       </div>
+
+      {/* adding my custom input field */}
+      <div className="mb-6">
+        <label htmlFor="sixOrNine" className="block text-white text-sm font-bold mb-2">Six or Nine</label>
+        <input
+          type="text"
+          id="sixOrNine"
+          value={sixOrNine}
+          onChange={(e) => setSixOrNine(e.target.value)}
+          className="bg-gray-700 appearance-none border rounded py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600"
+        />
+      </div>
+
       <div className="mb-4">
         <button
           type="button"
@@ -141,8 +157,10 @@ const PetForm = () => {
         </button>
       </div>
       {fullName && <p className="text-white">Full Name: {fullName}</p>}
+      {sixOrNine && <p className="text-white">You selected: {sixOrNine}</p>}
+      {sum && <p className="text-white">Hardcoded value is: {sum}</p>}
       {message && <p className="text-sm text-green-500">{message}</p>}
-      {sum && <p className="text-sm text-green-500">{sum}</p>}
+
 
     </form>
   );
