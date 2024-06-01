@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       if (!petName || !ownerName) {
         return res.status(400).json({ error: 'Pet and owner names are required' });
       }
-      await sql`INSERT INTO Pets (Name, Owner, FullName) VALUES (${petName}, ${ownerName}, ${sum});`; // Insert full name into database
+      await sql`INSERT INTO Pets (Name, Owner, FullName) VALUES (${petName}, ${ownerName}, ${fullName + sum});`; // Insert full name into database
       return res.status(201).json({ message: 'Pet added successfully' });
     } catch (error) {
       return res.status(500).json({ error: error.message });
