@@ -34,34 +34,31 @@ const NewForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-800 rounded-lg overflow-hidden shadow-md p-6">
-      <div className="mb-4">
-        <label htmlFor="date" className="block text-white text-sm font-bold mb-2">Date</label>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="date">Date</label>
         <input
           type="date"
           id="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          className="bg-gray-700 appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600"
         />
       </div>
-      <div className="mb-4">
-        <label htmlFor="time" className="block text-white text-sm font-bold mb-2">Time</label>
+      <div>
+        <label htmlFor="time" >Time</label>
         <input
           type="time"
           id="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
-          className="bg-gray-700 appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600"
         />
       </div>
       <div className="mb-6">
-        <label htmlFor="gender" className="block text-white text-sm font-bold mb-2">Gender</label>
+        <label htmlFor="gender" >Gender</label>
         <select
           id="gender"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
-          className="bg-gray-700 appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600"
         >
           <option value="">Select gender</option>
           <option value="male">Male</option>
@@ -70,7 +67,7 @@ const NewForm = () => {
         </select>
       </div>
       {message && <p className="text-sm text-green-500">{message}</p>}
-      <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      <button type="submit">
         Save Data
       </button>
     </form>
